@@ -21,11 +21,13 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-    const color = colorToEdit;
+    let color = colors.filter(color => color.id === colorToEdit.id);
     axios
-      .put(`http://localhost:5000/colors/${color.id}`, color)
+      .put(`http://localhost:5000/colors/${color.id}`, colorToEdit)
       .then(res => {
-        updateColors(res.data);
+        colors = colors.filter(color => color.id !== res.data.id);
+        updateColors([...colors, res.data]);
+        setEditing(false);
       })
       .catch(error => console.log(error.response));
   };
@@ -35,7 +37,7 @@ const ColorList = ({ colors, updateColors }) => {
     axios
       .delete(`http://localhost:5000/colors/${color.id}`)
       .then(res => {
-        updateColors(res.data);
+        console.log(res)
       })
       .catch(error => console.log(error.response));
   };

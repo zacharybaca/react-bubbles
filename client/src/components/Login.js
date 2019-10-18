@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
 const Login = () => {
@@ -11,7 +10,7 @@ const Login = () => {
   })
 
   const handleChange = event => {
-    setCredentials({
+    return setCredentials({
       ...credentials,
       [event.target.name]: event.target.value
     })
@@ -23,7 +22,8 @@ const Login = () => {
       .post('/api/login', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
-        
+        //Need History Object Here, But Can't Use It For Some Reason
+        //props.history.push("protected");
       })
       .catch(error => console.log(error.response));
   };
