@@ -23,7 +23,7 @@ const Login = () => {
       .then(res => {
         localStorage.setItem('token', res.data.payload);
         //Need History Object Here, But Can't Use It For Some Reason
-        //props.history.push("protected");
+        props.history.push("/protected");
       })
       .catch(error => console.log(error.response));
   };
