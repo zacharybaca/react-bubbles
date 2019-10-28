@@ -29,9 +29,20 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+/** A token is used to authenticate a user and give them access to a protected URL with sensitive information. It also prevents unauthorized access.**/
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+/** You can implement JWT tokens to keep your user's information protected from unauthorized access. Also, you can implement .env files in your project so you can store your token credentials or API keys so unauthorized individuals would not be able to gain access without authorization.**/
+
 - [ ] Describe how web servers work.
+
+/** Basically, a user requests information from a chosen website using a readable name. Then the request is sent through your ISP, which then converts the URL name into a IP address that is the site's address on the internet. If that site is currently online and not undergoing maintenance, that user will get back the page with information on it.**/
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+/** Create- Post, Read- Get, Update- Put, Delete: Delete**/
 
 
 ## Project Set Up
@@ -65,15 +76,15 @@ The MVP of this project will be broken up between 2 stages. Follow each step.
 
 Build a login form to authenticate your users.
 
-- [ ] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
-- [ ] Save the token to localStorage
-- [ ] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
-- [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
+- [x] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
+- [x] Save the token to localStorage
+- [x] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
+- [x] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
 
 ### Stage 2 - Consuming the API
 
-- [ ] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
+- [x] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
 - [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 ### API Documentation
