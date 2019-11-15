@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
-const Login = () => {
+const Login = (props) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [credentials, setCredentials] = useState({
@@ -21,8 +21,7 @@ const Login = () => {
     axiosWithAuth()
       .post('/api/login', credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.payload);
-        //Need History Object Here, But Can't Use It For Some Reason
+        window.localStorage.setItem('token', res.data.payload);
         props.history.push("/protected");
       })
       .catch(error => console.log(error.response));
