@@ -12,7 +12,11 @@ function App() {
       <div className="App">
         <Link to="/login">Login</Link>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" render={props => (
+            <Login
+              {...props}
+            />
+          )} />
           <PrivateRoute exact path="/protected" component={BubblePage} />
         </Switch>
       </div>
